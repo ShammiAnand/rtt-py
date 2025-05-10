@@ -15,4 +15,4 @@ jobs:
       - uses: pdm-project/setup-pdm@v4
 
       - name: Publish package distributions to PyPI
-        run: pdm publish --identity pypi
+        run: pdm publish --identity pypi --username __token__ --password ${{ secrets.PYPI_PASSWORD }}
