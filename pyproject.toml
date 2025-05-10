@@ -1,6 +1,6 @@
 [project]
 name = "rtt-py"
-version = "0.2.4"
+version = "0.2.5"
 description = "Default template for PDM package"
 authors = [{ name = "Shammi Anand", email = "shammianand101@gmail.com" }]
 dependencies = [
@@ -9,7 +9,7 @@ dependencies = [
   "markdownify>=1.1.0",
   "requests>=2.32.3",
 ]
-requires-python = ">=3.12.*"
+requires-python = ">=3.12"
 readme = "README.md"
 license = { text = "MIT" }
 
