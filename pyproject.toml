@@ -1,0 +1,20 @@
+[project]
+name = "rtt-py"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Shammi Anand", email = "shammianand101@gmail.com"},
+]
+dependencies = [
+    "typer>=0.15.3",
+    "structlog>=25.3.0",
+    "markdownify>=1.1.0",
+    "requests>=2.32.3",
+]
+requires-python = "==3.12.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
