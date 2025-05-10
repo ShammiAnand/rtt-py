@@ -1,6 +1,6 @@
 [project]
 name = "rtt-py"
-version = "0.2.2"
+version = "0.2.4"
 description = "Default template for PDM package"
 authors = [{ name = "Shammi Anand", email = "shammianand101@gmail.com" }]
 dependencies = [
@@ -9,12 +9,12 @@ dependencies = [
   "markdownify>=1.1.0",
   "requests>=2.32.3",
 ]
-requires-python = "==3.12.*"
+requires-python = ">=3.12.*"
 readme = "README.md"
 license = { text = "MIT" }
 
 [project.scripts]
-rtt-py = "rtt_py.main:app"
+rtt-py = "src.rtt_py.main:app"
 
 [build-system]
 requires = ["pdm-backend"]

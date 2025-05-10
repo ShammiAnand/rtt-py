@@ -17,8 +17,6 @@ def process(
     """
     Process a directory or URL and optionally query it.
     """
-    log.info("cli", entity=entity, type=type)
-
     if not ensure_types_match(entity, type):
         raise ValueError(
             f"entity {entity} does not match type {type}, please provide a valid entity"
@@ -27,14 +25,27 @@ def process(
     if type == "dir":
         walker = DirWalker(entity)
         path = walker.convert()
-        log.info("output stored", path=path, files_read=len(walker.files))
+        log.info(
+            "finished",
+            path=path,
+            files_read=len(walker.files),
+            entity=entity,
+        )
 
     elif type == "url":
         url_parser = UrlParser(entity)
         path = url_parser.convert()
-        log.info("output stored", path=path)
+        log.info(
+            "finished",
+            path=path,
+            entity=entity,
+        )
 
     else:
         raise ValueError(
             f"unknown type {type}, please provide a valid type: dir or url"
         )
+
+
+if __name__ == "__main__":
+    app()
