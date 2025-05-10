@@ -22,7 +22,9 @@ class UrlParser:
 
         return url
 
-    def convert(self, default_ext: str = ".md") -> str:
+    def convert(
+        self, want_content: bool = False, default_ext: str = ".md"
+    ) -> tuple[str, str | None]:
         """
         fetches the url and converts it to markdown
         then writes the markdown to a file with default_ext
@@ -33,7 +35,10 @@ class UrlParser:
         self.html = response.text
         self.markdown = markdownify.markdownify(self.html, heading_style="ATX")
 
-        with open(f"rtt{default_ext}", "w") as f:
-            f.write(self.markdown)
+        if not want_content:
+            with open(f"rtt{default_ext}", "w") as f:
+                f.write(self.markdown)
 
-        return f"rtt{default_ext}"
+            return f"rtt{default_ext}", None
+
+        return f"rtt{default_ext}", self.markdown

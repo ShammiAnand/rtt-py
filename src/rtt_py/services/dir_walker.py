@@ -18,7 +18,9 @@ class DirWalker:
 
         return path
 
-    def convert(self, default_ext: str = ".md") -> str:
+    def convert(
+        self, want_content: bool = False, default_ext: str = ".md"
+    ) -> tuple[str, str | None]:
         """
         walks the directory and stores all the file contents into a single file
         and returns the path to the file
@@ -41,8 +43,6 @@ class DirWalker:
                     self.file_contents[file] = f.read()
                     self.files.append(file)
 
-        # write all the file contents to a single file with default_ext
-        # at the same level as the directory
         with open(os.path.join(self.path, f"rtt{default_ext}"), "w") as f:
             for file in self.files:
                 f.write(f"# {file}\n")
@@ -51,4 +51,11 @@ class DirWalker:
                 f.write("\n```")
                 f.write("\n\n")
 
-        return os.path.join(self.path, f"rtt{default_ext}")
+        if want_content:
+            with open(os.path.join(self.path, f"rtt{default_ext}"), "r") as f:
+                content = f.read()
+
+            os.remove(os.path.join(self.path, f"rtt{default_ext}"))
+            return os.path.join(self.path, f"rtt{default_ext}"), content
+
+        return os.path.join(self.path, f"rtt{default_ext}"), None
