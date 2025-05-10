@@ -1,5 +1,6 @@
 import typer
 
+from rich import print
 
 from .utils import log, ensure_types_match
 from .services import DirWalker, UrlParser, ChatCompletions, InputMessage
@@ -53,10 +54,10 @@ def query(
         )
         log.info(
             "finished",
-            response=resp,
             input_tokens=input_tokens,
             output_tokens=output_tokens,
         )
+        print(resp)
 
     elif type == "url":
         url_parser = UrlParser(entity)
@@ -82,10 +83,10 @@ def query(
         )
         log.info(
             "finished",
-            response=resp,
             input_tokens=input_tokens,
             output_tokens=output_tokens,
         )
+        print(resp)
 
 
 @app.command(
