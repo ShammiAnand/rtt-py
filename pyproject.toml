@@ -1,6 +1,6 @@
 [project]
 name = "rtt-py"
-version = "1.1.0"
+version = "1.2.0"
 description = "Default template for PDM package"
 authors = [{ name = "Shammi Anand", email = "shammianand101@gmail.com" }]
 dependencies = [
