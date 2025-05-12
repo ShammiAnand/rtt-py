@@ -14,7 +14,7 @@ readme = "README.md"
 license = { text = "MIT" }
 
 [project.scripts]
-rtt-py = "src.rtt_py.main:app"
+rtt-py = "rtt_py.main:app"
 
 [build-system]
 requires = ["pdm-backend"]
